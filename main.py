@@ -9,11 +9,11 @@ from urllib.parse import urlparse
 def get_bitlink(link, bitly_token):
     headers = {
         "Authorization": f"Bearer {bitly_token}",
-        }
+    }
     url = "https://api-ssl.bitly.com/v4/bitlinks"
     long_url = {
         "long_url": link
-        }
+    }
     response = requests.post(url, json=long_url, headers=headers)
     response.raise_for_status()
     return response.json()["id"]
@@ -23,12 +23,12 @@ def count_clicks(bitlink, bitly_token):
     bitlink = urlparse(bitlink)
     headers = {
         "Authorization": f"Bearer {bitly_token}",
-        }
+    }
     url = f"https://api-ssl.bitly.com/v4/bitlinks/{bitlink.netloc}{bitlink.path}/clicks/summary"
     params = {
         "unit": "day",
         "units": -1
-        }
+    }
     response = requests.get(url, params=params, headers=headers)
     response.raise_for_status()
     return response.json()["total_clicks"]
@@ -37,7 +37,7 @@ def count_clicks(bitlink, bitly_token):
 def is_bitlink(link, bitly_token):
     headers = {
         "Authorization": f"Bearer {bitly_token}",
-        }
+    }
     link = urlparse(link)
     link = f"{link.netloc}{link.path}"
     url = f"https://api-ssl.bitly.com/v4/bitlinks/{link}"
