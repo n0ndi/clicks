@@ -50,8 +50,8 @@ def main():
     bitly_token = os.getenv("BITLY_TOKEN")
     parser = argparse.ArgumentParser()
     parser.add_argument("site_link")
-    input_links = parser.parse_args()
-    link = input_links.site_link
+    cmd_args = parser.parse_args()
+    link = cmd_args.site_link
     try:
         if is_bitlink(link, bitly_token):
             print("Количество переходов:", count_clicks(link, bitly_token))
