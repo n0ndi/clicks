@@ -15,12 +15,14 @@ pip install -r requirements.txt
 
 
 ### Пример работы программы
+```
 C:\Users\Никита\PycharmProjects\clicks> main.py https://www.youtube.com
 Битлинк: bit.ly/3z6dErY
-
+```
+```
 C:\Users\Никита\PycharmProjects\clicks>main.py bit.ly/3z6dErY
 Количество переходов: 0
-
+```
 
 ### Цель проекта
 
